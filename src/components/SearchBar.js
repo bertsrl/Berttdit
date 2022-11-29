@@ -3,8 +3,8 @@ import AppButton from './AppButton';
 
 function SearchBar({ handleChange }) {
     return (
-      <div className="search fixed bg-orange-200 w-full h-[83px] text-orange-100 font-antic flex flex-row justify-center items-center 
-      sm:space-x-[25.5%]">
+      <div className="search fixed bg-orange-200 w-full h-[83px] text-orange-100 font-antic flex flex-row justify-center items-center
+      mr-[20px] space-x-[25%]">
 
         {/* Logo */}
         <img
@@ -13,10 +13,10 @@ function SearchBar({ handleChange }) {
             src="../logo.png" />
         
         {/* SearchBar */}
-        <form className="flex justify-center items-center">
+        <form className="flex justify-center items-center w-[350px]">
             <input 
                 placeholder="Search.." 
-                className="ceva1 px-5 rounded-[45px] bg-white w-[250px] sm:w-[463px] h-[34px]" 
+                className="ceva1 px-5 rounded-[45px] bg-white sm:w-[463px] h-[34px]" 
                 onChange = {handleChange} />
         </form>
         

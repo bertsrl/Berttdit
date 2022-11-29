@@ -9,12 +9,9 @@ const Landing = () => {
   const [searchField, setSearchField] = useState("");
 
     useEffect(() => {
-        console.log('effect')
         axios
           .get('https://www.reddit.com/r/popular.json')
           .then(response => {
-            console.log('promise fulfilled')
-            console.log(response.data)
             setPosts(response.data.data.children);
           })
       }, [])
@@ -45,7 +42,6 @@ const Landing = () => {
           setSearchField(e.target.value);
           setSearching(true);
         }
-        
       };
 
   return (

@@ -3,7 +3,20 @@ import Filters from '../elements/Filters';
 import Card from './Card';
 
 function Feed({ posts }) {
-      
+    // const [randomCategories, setRandomCategories] = useState([])
+
+    // useEffect(() => {
+    //     const random = () => {
+    //         let categories = [];
+    //         for(let i=0; i<3; i++) {
+    //           const number = Math.floor(Math.random() * posts.length);
+    //           categories[i] = posts.filter( (post, index) => index === number ? post.data : "")
+    //         }
+    //         return categories;
+    //       }
+    //       setRandomCategories(random);
+    // }, [])
+
     return (
         <>
         
