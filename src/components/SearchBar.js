@@ -1,9 +1,10 @@
 import React from 'react';
 import AppButton from './AppButton';
 
-function SearchBar(props) {
+function SearchBar({ handleChange }) {
     return (
-      <div className="search fixed bg-orange-200 w-full h-[83px] text-orange-100 font-antic flex flex-row justify-center items-center space-x-[23.5%]">
+      <div className="search fixed bg-orange-200 w-full h-[83px] text-orange-100 font-antic flex flex-row justify-center items-center 
+      sm:space-x-[23.5%]">
 
         {/* <Insert Logo> */}
         <img
@@ -12,8 +13,11 @@ function SearchBar(props) {
             src="../logo.png" />
         
         {/* SearchBar */}
-        <form className="flex self-center">
-            <input placeholder="Search.." className="ceva1 px-5 rounded-[45px] bg-white w-[463px] h-[34px]" />
+        <form className="flex justify-center items-center">
+            <input 
+                placeholder="Search.." 
+                className="ceva1 px-5 rounded-[45px] bg-white w-[300px] sm:w-[463px] h-[34px]" 
+                onChange = {handleChange} />
         </form>
         
         <div className="buttons flex flex-row gap-4" >

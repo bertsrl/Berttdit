@@ -3,8 +3,8 @@ import AppButton from './AppButton';
 
 function Card({subreddit, title, thumbnail}) {
     return (
-    <div className="bg-gray-100 shadow-[4px_4px_4px_rgba(0,_0,_0,_0.25)] [border:1px_solid_#000] box-border w-[533px] overflow-hidden 
-    text-base flex flex-row my-5 h-wrap">
+    <div className="bg-gray-100 shadow-[4px_4px_4px_rgba(0,_0,_0,_0.25)] [border:1px_solid_#000] box-border w-[350px] sm:w-[533px] overflow-hidden 
+    text-base flex flex-row my-5 h-wrap shrink">
         
         {/* left side feedback */}
         <div className="h-stretch w-wrap bg-orange-400 border-r-1 flex flex-col wrap items-center gap-3 p-3">
@@ -41,7 +41,7 @@ function Card({subreddit, title, thumbnail}) {
             </div>
 
             {/* content */}
-            <div className="flex flex-col wrap m-3 gap-4">
+            <div className="flex flex-col wrap m-3 gap-4 max-sm:w-[260px]">
                 <div className="text-[16px] font-medium text-left flex items-center w-full">
                     {title}
                 </div>

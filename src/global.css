@@ -16,8 +16,22 @@ body .search {
   border-bottom: 1px solid #000;
 }
 
+body .search img, .buttons {
+  display: none;
+}
+@media (min-width: 640px) {
+  body .search img, .buttons {
+    display: block;
+  }
+}
+
 body .feed {
-  margin-top: 5%;
+  margin-top: 25%;
+}
+@media (min-width: 640px) {
+  body .feed {
+    margin-top: 5%;
+  }
 }
 
 body .navigation {
