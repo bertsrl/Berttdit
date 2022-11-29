@@ -4,6 +4,7 @@ import Feed from '../components/Feed';
 import SearchBar from '../components/SearchBar';
 
 const Landing = () => {
+  const [searching, setSearching] = useState(false);
   const [posts, setPosts] = useState([]);
   const [searchField, setSearchField] = useState("");
 
@@ -39,7 +40,12 @@ const Landing = () => {
       : posts
     
       const handleChange = e => {
-        setSearchField(e.target.value);
+        if(e.target.value === "") setSearching(false);
+        else {
+          setSearchField(e.target.value);
+          setSearching(true);
+        }
+        
       };
 
   return (
@@ -51,7 +57,7 @@ const Landing = () => {
       <Feed posts={filteredPosts} />
 
     </div>
-    <div className="absolute permanent w-full h-full bg-orange-200" />
+    <div className={`absolute permanent w-full ${ searching ? "h-full" : "h-wrap" } bg-orange-200`} />
     </>
   );
 };

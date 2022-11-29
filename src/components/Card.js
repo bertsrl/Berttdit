@@ -45,11 +45,15 @@ function Card({subreddit, title, thumbnail}) {
                 <div className="text-[16px] font-medium text-left flex items-center w-full">
                     {title}
                 </div>
+                {
+                thumbnail !== "self" && thumbnail !== "default" && thumbnail !== "" &&
                 <img
-                className="h-wrap w-wrap max-w-full overflow-hidden max-h-full object-cover"
+                className="w-[100%] h-[100%] overflow-hidden object-cover"
                 alt=""
                 src={thumbnail}
-                />
+                /> 
+                }
+                
                 <div className="flex flex-row w-full">
                     <AppButton
                         icon="../iconsaxlinearmessage.svg">Comments</AppButton>

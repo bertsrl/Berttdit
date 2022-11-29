@@ -8,7 +8,7 @@ function Feed({ posts }) {
         <>
         
         <div className="w-full h-full flex justify-center items-center shrink"> 
-            <div className="feed w-wrap sm:w-[583px] h-full flex items-center flex-col wrap">
+            <div className="feed w-wrap sm:w-[583px] h-full flex justify-center items-center flex-col wrap">
 
                 <Filters />
                 
