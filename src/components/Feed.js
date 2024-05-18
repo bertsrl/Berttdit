@@ -1,44 +1,66 @@
-import React, { useEffect, useState } from 'react';
-import Filters from '../elements/Filters';
-import Card from './Card';
+import React, { useEffect, useState } from "react";
 
-function Feed({ posts }) {
-    // const [randomCategories, setRandomCategories] = useState([])
+import Card from "./Card";
+import Filters from "../elements/Filters";
 
-    // useEffect(() => {
-    //     const random = () => {
-    //         let categories = [];
-    //         for(let i=0; i<3; i++) {
-    //           const number = Math.floor(Math.random() * posts.length);
-    //           categories[i] = posts.filter( (post, index) => index === number ? post.data : "")
-    //         }
-    //         return categories;
-    //       }
-    //       setRandomCategories(random);
-    // }, [])
+function Feed({ posts, isLoading }) {
+  // const [randomCategories, setRandomCategories] = useState([])
 
-    return (
-        <>
-        
-        <div className="w-full h-full flex justify-center items-center shrink"> 
-            <div className="feed w-wrap sm:w-[583px] h-full flex justify-center items-center flex-col wrap">
+  // useEffect(() => {
+  //     const random = () => {
+  //         let categories = [];
+  //         for(let i=0; i<3; i++) {
+  //           const number = Math.floor(Math.random() * posts.length);
+  //           categories[i] = posts.filter( (post, index) => index === number ? post.data : "")
+  //         }
+  //         return categories;
+  //       }
+  //       setRandomCategories(random);
+  // }, [])
 
-                <Filters />
-                
+  return (
+    <>
+      <div className="w-full h-full flex justify-center items-center shrink">
+        <div className="feed w-wrap sm:w-[583px] h-full flex justify-center items-center flex-col wrap">
+          <Filters />
+
+          <div>
+            {!isLoading ? (
+              posts.map((post) => {
+                return (
+                  <Card
+                    subreddit={post.data.subreddit_name_prefixed}
+                    title={post.data.title}
+                    thumbnail={post.data.thumbnail}
+                  />
+                );
+              })
+            ) : (
+              <>
                 <div>
-                { posts.map(post => {
-                    return (
-                        <Card 
-                            subreddit={post.data.subreddit_name_prefixed}
-                            title={post.data.title}
-                            thumbnail={post.data.thumbnail} />
-                    )
-                })}
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <div key={index} className="skeleton-card">
+                      <div className="h-[2vh]"></div>
+                      <div role="status" className="w-[40vw] animate-pulse">
+                        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+                        <span className="sr-only">Loading...</span>
+                      </div>
+                      <div className="h-[2vh]"></div>
+                    </div>
+                  ))}
                 </div>
-            </div>
+              </>
+            )}
+          </div>
         </div>
-        </>
-    );
+      </div>
+    </>
+  );
 }
 
 export default Feed;

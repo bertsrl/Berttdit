@@ -32,5 +32,13 @@ module.exports = {
       "3xl": "40px",
     },
   },
+  daisyui: {
+    themes: [
+      "light",
+      "dark",
+      "retro"
+    ],
+  },
   corePlugins: { preflight: false },
+  plugins: [require("daisyui")],
 };
