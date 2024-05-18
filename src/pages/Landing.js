@@ -15,7 +15,6 @@ const Landing = () => {
     axios
       .get("https://www.reddit.com/r/popular.json")
       .then((response) => {
-        console.log(response.data.data.children);
         setPosts(response.data.data.children);
         setLoading(false); // Set loading to false after data is fetched
       })
